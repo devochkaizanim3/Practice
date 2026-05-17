@@ -6,7 +6,7 @@ from tqdm import tqdm
 import matplotlib.pyplot as plt
 import pandas as pd
 
-# ===================== НАСТРОЙКИ =====================
+
 base_folder = r"C:\Users\Alexey\Desktop\Desktop"
 
 folders = {
@@ -19,7 +19,7 @@ folders = {
 max_images_per_folder = 1000
 group_size = 4
 workers = 8
-# ====================================================
+
 
 def rs_analysis_image(image_path):
     try:
@@ -64,7 +64,7 @@ def rs_analysis_image(image_path):
         return None
 
 
-# ===================== АНАЛИЗ =====================
+
 all_results = []
 print("Запуск анализа с учётом размера файла...\n")
 
@@ -90,7 +90,7 @@ for payload_name, folder_name in folders.items():
 
 df = pd.DataFrame(all_results)
 
-# ===================== ГРАФИКИ =====================
+
 # 1. Четыре гистограммы diff
 fig, axes = plt.subplots(2, 2, figsize=(16, 12))
 fig.suptitle('RS-стегоанализ — Распределение diff (R-S) по объёму внедрения', fontsize=18, fontweight='bold')
@@ -126,7 +126,7 @@ plt.plot(df['file_size_kb'], p(df['file_size_kb']), "r--", linewidth=2, label=f'
 plt.legend()
 plt.show()
 
-# ===================== ИТОГИ =====================
+
 print("\n" + "="*90)
 print("                          ИТОГОВЫЙ ОТЧЁТ")
 print("="*90)
